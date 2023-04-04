@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Frontend Code Editor</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/15f6b831b7.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <center><h1>Frontend Code Editor (CODEPEN clone)  <i class="fa-solid fa-pen"></i></h1></center>
+
+    <div class="box">
+      <div class="left">
+        <label><i class="fa-brands fa-html5"></i>HTML</label>
+        <textarea id="html-codespace" onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-css3-alt"></i>CSS</label>
+        <textarea id="css-codespace" onkeyup="run()"></textarea>
+
+        <label><i class="fa-brands fa-js"></i>JavaScript</label>
+        <textarea id="js-codespace" onkeyup="run()"></textarea>
+      </div>
+
+      <div class="right">
+        <label><i class="fa-solid fa-play"></i>Output</label>
+        <iframe id="output">
+
+        </iframe>
+
+      </div>
+
+    </div>
+    <script>
+      function run(){
+        let htmlcode=document.getElementById("html-codespace").value;
+        let csscode=document.getElementById("css-codespace").value;
+        let jscode=document.getElementById("js-codespace").value;
+        let output=document.getElementById("output");
+
+        output.contentDocument.body.innerHTML=htmlcode+"<style>"+csscode+"<style>";
+        output.contentWindow.eval(jscode);
+      }
+    </script>
+
+
+
+
+
+  </body>
+</html>
